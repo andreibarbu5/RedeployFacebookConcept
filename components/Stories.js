@@ -16,10 +16,10 @@ import { useSession, signIn, signOut } from "next-auth/react";
 const Stories = () => {
   const { data: session } = useSession();
   const stories = [
-    { profile: mikeprofile, background: mike },
-    { profile: mrbeast, background: mrbeastbackground },
-    { profile: kobebackground, background: kobe },
-    { profile: arnold, background: arnoldbackground },
+    { profile: mikeprofile, background: mike, uq: "1" },
+    { profile: mrbeast, background: mrbeastbackground, uq: "2" },
+    { profile: kobebackground, background: kobe, uq: "3" },
+    { profile: arnold, background: arnoldbackground, uq: "4" },
   ];
 
   return (
@@ -27,7 +27,7 @@ const Stories = () => {
       <div className="flex  h-[9rem] w-screen sm:w-full mt-4 px-2 mx-auto md:h-[11rem]">
         <div className="bg-white  flex justify-center mx-auto w-full max-w-[25rem] space-x-4 rounded-[1rem] py-2 px-2  sm:max-w-[30rem] md:max-w-[34rem]">
           {/* My story */}
-          <div key="mystory" className="relative flex  w-[5rem] md:w-[7rem] ">
+          <div key={23} className="relative flex  w-[5rem] md:w-[7rem] ">
             <div className="flex bg-gray-700 rounded-[1rem] ">
               <img
                 src={session ? session.user.image : therock20.src}
@@ -42,12 +42,12 @@ const Stories = () => {
               />
             </div>
           </div>
-          {/* My story */}
+          {/* My storyy */}
 
           {/* Story 1 */}
           {stories.map((story) => (
             <div
-              key={story.profile}
+              key={story.uq}
               className="relative flex  w-[5rem] md:w-[7rem] "
             >
               <div className="flex bg-gray-700 rounded-[1rem] ">

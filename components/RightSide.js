@@ -40,7 +40,7 @@ const RightSide = () => {
         </div>
         <div className="space-y-7 mt-4">
           {profiles.map((profile) => (
-            <div key={profile.photo} className="flex items-center ">
+            <div key={profile.name} className="flex items-center ">
               <div className="relative flex w-10 h-10 mr-2">
                 <Image
                   src={profile.photo}

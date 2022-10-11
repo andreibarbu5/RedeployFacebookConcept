@@ -189,7 +189,7 @@ const Post = ({ id, username, userImg, img, caption, timestamp }) => {
           </div>
           {/* Comment1 */}
           {comments.map((comment) => (
-            <div className="">
+            <div key={comment.id} className="">
               <div className="flex items-center mt-2">
                 <div className=" flex items-center pr-3">
                   <div className="w-9 h-9 mr-2">
