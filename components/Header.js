@@ -9,16 +9,21 @@ import { BsCart3 } from "react-icons/bs";
 import { GrGroup, GrAppsRounded } from "react-icons/gr";
 import { FaBell } from "react-icons/fa";
 import { AiOutlineMessage } from "react-icons/ai";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn, useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { data: session } = useSession();
+  const router = useRouter();
   return (
     <div className="">
       <div className="flex items-center justify-between border-b py-3 px-4  md:py-4 md:px-6">
         {/* Left */}
         <div className="flex  items-center">
-          <div className="flex  items-center justify-center w-10 h-10 ">
+          <div
+            className="flex  items-center justify-center w-10 h-10 "
+            onClick={() => router.push("/")}
+          >
             <Image src={facebook} />
           </div>
           <div className="hidden sm:block ml-4 ">

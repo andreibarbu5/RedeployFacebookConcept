@@ -18,8 +18,11 @@ import {
 } from "react-icons/ai";
 
 import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 // py-3 px-4  md:py-4 md:px-6
 const LeftSide = () => {
+  const { data: session } = useSession();
   return (
     <div>
       <div className="  w-40 space-y-3 mt-6 py-3 pl-4 md:py-4 md:pl-6 xl:w-[15rem]">
@@ -29,7 +32,7 @@ const LeftSide = () => {
         </div>
         <div className="flex">
           <div className="w-8 h-8 mr-2 ">
-            <Image src={guy} className="rounded-full" />
+            <img src={session?.user?.image} className="rounded-full" />
           </div>
           <p className="font-semibold">Andrei Barbu</p>
         </div>

@@ -66,7 +66,7 @@ const NewPost = () => {
       <div className="bg-white   mx-auto w-full max-w-[25rem]  rounded-[0.6rem] py-3 px-2  sm:max-w-[30rem] md:max-w-[34rem] mt-4 ">
         <div className="flex mx-2 mt-2 items-center">
           <div className="w-10 h-10 mr-4 shrink-0">
-            <Image src={guy} className="rounded-full  " />
+            <img src={session?.user?.image} className="rounded-full  " />
           </div>
           <input
             type="text"
@@ -78,7 +78,7 @@ const NewPost = () => {
             onClick={image ? uploadPost : () => alert("Please add an Image")}
             className="flex items-center bg-blue-500 p-2 ml-2 h-8 rounded-full text-white font-semibold hover:bg-blue-400"
           >
-            {loading ? "Loading" : "Send"}
+            {loading ? "Loading" : "Post"}
           </button>
         </div>
         <div className="">
