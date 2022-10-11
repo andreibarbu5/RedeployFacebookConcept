@@ -27,6 +27,7 @@ import { db } from "../firebase";
 import { useSession } from "next-auth/react";
 import bluelike from "../assets/25like.png";
 import blacklike from "../assets/2unlike.png";
+import nouser from "../assets/nouser.png";
 
 const Post = ({ id, username, userImg, img, caption, timestamp }) => {
   const { data: session } = useSession();
@@ -214,7 +215,10 @@ const Post = ({ id, username, userImg, img, caption, timestamp }) => {
         {/* Input */}
         <div className="px-3 flex items-center w-full py-2">
           <div className="w-9 h-9 mr-2 shrink-0">
-            <img src={session?.user?.image} className="rounded-full" />
+            <img
+              src={session ? session?.user?.image : nouser.src}
+              className="rounded-full"
+            />
           </div>
           <div className="flex items-center w-full relative bg-[#f2f3f7]  rounded-full">
             <input

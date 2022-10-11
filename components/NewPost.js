@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore";
 import { db, storage } from "../firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
-
+import nouser from "../assets/nouser.png";
 const NewPost = () => {
   const { data: session } = useSession();
   const captionRef = useRef(null);
@@ -66,7 +66,10 @@ const NewPost = () => {
       <div className="bg-white   mx-auto w-full max-w-[25rem]  rounded-[0.6rem] py-3 px-2  sm:max-w-[30rem] md:max-w-[34rem] mt-4 ">
         <div className="flex mx-2 mt-2 items-center">
           <div className="w-10 h-10 mr-4 shrink-0">
-            <img src={session?.user?.image} className="rounded-full  " />
+            <img
+              src={session ? session?.user?.image : nouser.src}
+              className="rounded-full  "
+            />
           </div>
           <input
             type="text"

@@ -11,7 +11,7 @@ import { FaBell } from "react-icons/fa";
 import { AiOutlineMessage } from "react-icons/ai";
 import { signIn, useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-
+import nouser from "../assets/nouser.png";
 const Header = () => {
   const { data: session } = useSession();
   const router = useRouter();
@@ -55,7 +55,10 @@ const Header = () => {
           </div>
 
           <div className="w-9 h-9 " onClick={signIn}>
-            <img src={session?.user?.image} className="rounded-full   " />
+            <img
+              src={session ? session?.user?.image : nouser.src}
+              className="rounded-full   "
+            />
           </div>
         </div>
       </div>

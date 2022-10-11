@@ -19,6 +19,7 @@ import {
 
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
+import nouser from "../assets/nouser.png";
 
 // py-3 px-4  md:py-4 md:px-6
 const LeftSide = () => {
@@ -30,11 +31,16 @@ const LeftSide = () => {
           <MdHome className="w-8 h-8" />
           <p className="ml-2 font-semibold">Home</p>
         </div>
-        <div className="flex">
+        <div className="flex items-center">
           <div className="w-8 h-8 mr-2 ">
-            <img src={session?.user?.image} className="rounded-full" />
+            <img
+              src={session ? session?.user?.image : nouser.src}
+              className="rounded-full"
+            />
           </div>
-          <p className="font-semibold">Andrei Barbu</p>
+          <p className="font-semibold">
+            {session ? session?.user?.username : "Log In"}
+          </p>
         </div>
         <div className="border-t border-[#d2d0d0]"></div>
         <div className="space-y-7">
